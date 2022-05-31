@@ -1,17 +1,22 @@
-async function fetchSomething(url) {
+const loader = document.querySelector(".loading");
+
+async function fetchPeople(url) {
+  loader.classList.remove("display");
+
   const res = await fetch(url);
 
   return await res.json();
 }
 
 function addToDom(data) {
+  loader.classList.add("display");
   let output = "";
 
   data.forEach((person) => {
     let image = person.image.split("?")[0];
 
     output += `<tr>
-                <td class="flex-box"><p>${person.full_name}</p> <img src="${image}" loading="lazy"></td>
+                <td class="flex-box"><p>${person.full_name}</p> <img src="${image}" alt="x" loading="lazy"></td>
                 <td>${person.location}, ${person.country}</td>
                 <td>${person.email}</td>
                 <td>${person.phone_number}</td>
@@ -36,12 +41,15 @@ function sortTable(n) {
     shouldSwitch,
     dir,
     switchCount = 0;
-  table = document.querySelector(".peopleTable");
+
+  table = document.querySelector(".people-table");
+
   switching = true;
   // Set the sorting direction to ascending:
   dir = "asc";
   /* Make a loop that will continue until
   no switching has been done: */
+
   while (switching) {
     // Start by saying: no switching is done:
     switching = false;
@@ -53,8 +61,8 @@ function sortTable(n) {
       shouldSwitch = false;
       /* Get the two elements you want to compare,
       one from current row and one from the next: */
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
       /* Check if the two rows should switch place,
       based on the direction, asc or desc: */
       if (dir === "asc") {
@@ -89,6 +97,26 @@ function sortTable(n) {
   }
 }
 
-fetchSomething(
-  "https://api.mockaroo.com/api/84c77a70?count=100&key=2dba0ea0"
+function searchBar() {
+  let input, filter, table, tr, td, i, txtValue;
+  input = document.querySelector(".search-bar");
+  filter = input.value.toUpperCase();
+  table = document.querySelector(".people-table");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+fetchPeople(
+  "https://api.mockaroo.com/api/c4170dc0?count=100&key=93e4fe30"
 ).then((res) => addToDom(res));

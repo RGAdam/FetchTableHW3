@@ -2,16 +2,30 @@
 
 $grayColor: #f2f2f2;
 
-img {
-  background-color: darken($grayColor, 20%);
-  margin-right: 15px;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+body {
+  font-family: Roboto, sans-serif;
 }
 
-.peopleTable {
-  font-family: Roboto, sans-serif;
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .search-bar {
+    text-align: center;
+    width: 50%;
+    border: 1px solid darken($grayColor, 10%);
+    padding: 20px;
+    margin-bottom: 20px;
+
+    &:focus {
+      outline: none;
+      border: 1.5px solid darken($grayColor, 20%);
+    }
+  }
+}
+
+.people-table {
   border-collapse: collapse;
   width: 100%;
 
@@ -50,5 +64,17 @@ img {
     p {
       order: 1;
     }
+
+    img {
+      background-color: darken($grayColor, 20%);
+      margin-right: 15px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
   }
+}
+
+.display {
+  display: none;
 }
