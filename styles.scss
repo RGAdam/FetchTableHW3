@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+$grayColor: #f2f2f2;
+
+img {
+  background-color: darken($grayColor, 20%);
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.peopleTable {
+  font-family: Roboto, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+
+  tr {
+    &:nth-child(even) {
+      background-color: $grayColor;
+    }
+
+    &:hover {
+      background-color: darken($grayColor, 10%);
+    }
+  }
+
+  th {
+    color: darken($grayColor, 70%);
+    border-bottom: 1px solid darken($grayColor, 10%);
+    text-align: left;
+    padding: 20px 0 10px 10px;
+    background-color: $grayColor;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  td {
+    color: darken($grayColor, 50%);
+    padding: 8px;
+    align-items: center;
+  }
+
+  .flex-box {
+    display: flex;
+    flex-direction: row;
+
+    p {
+      order: 1;
+    }
+  }
+}
