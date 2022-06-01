@@ -9,13 +9,13 @@ body .search-bar-container {
   justify-content: center;
   margin-bottom: 10px;
 }
-body .search-bar-container .search-bar {
+body .search-bar-container__search-bar {
   text-align: center;
   width: 50%;
   border: 1px solid #d9d9d9;
   padding: 20px;
 }
-body .search-bar-container .search-bar:focus {
+body .search-bar-container__search-bar:focus {
   outline: none;
   border: 1.5px solid #bfbfbf;
 }
@@ -44,26 +44,25 @@ body .people-table td {
   padding: 8px;
   align-items: center;
 }
-body .people-table .flex-box {
+body .people-table__flex-box {
   display: flex;
   flex-direction: row;
 }
-body .people-table .flex-box p {
+body .people-table__flex-box p {
   order: 1;
 }
-body .people-table .flex-box img {
+body .people-table__flex-box img {
   background-color: #bfbfbf;
   margin-right: 15px;
   border-radius: 50%;
   width: 30px;
   height: 30px;
 }
-body p {
+body .status-message-container {
   display: flex;
   justify-content: center;
 }
-
-.display {
+body .status-message-container--disabled {
   display: none;
 }
 

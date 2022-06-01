@@ -1,9 +1,9 @@
-const loader = document.querySelector(".loading");
+const loader = document.querySelector(".status-message-container__loading");
 table = document.querySelector(".people-table");
 tr = table.getElementsByTagName("tr");
 
 async function fetchPeople(url) {
-  loader.classList.remove("display");
+  loader.classList.remove("status-message-container--disabled");
 
   const res = await fetch(url);
 
@@ -11,14 +11,14 @@ async function fetchPeople(url) {
 }
 
 function addToDom(data) {
-  loader.classList.add("display");
+  loader.classList.add("status-message-container--disabled");
   let output = "";
 
   data.forEach((person) => {
     let image = person.image.split("?")[0];
 
     output += `<tr>
-                <td class="flex-box"><p>${person.full_name}</p> <img src="${image}" alt="x" loading="lazy"></td>
+                <td class="people-table__flex-box"><p>${person.full_name}</p> <img src="${image}" alt="x" loading="lazy"></td>
                 <td>${person.location}, ${person.country}</td>
                 <td>${person.email}</td>
                 <td>${person.phone_number}</td>
@@ -113,7 +113,7 @@ function getRadioButtonValue() {
 
 function filterFor() {
   let input, filter, td, i, txtValue, searchValue;
-  input = document.querySelector(".search-bar");
+  input = document.querySelector(".search-bar-container__search-bar");
   filter = input.value.toUpperCase();
 
   if (getRadioButtonValue() === "Name") {
@@ -133,7 +133,6 @@ function filterFor() {
       }
     }
   }
-
   didFilterFoundRecords();
 }
 
@@ -141,7 +140,7 @@ function didFilterFoundRecords() {
   let displayed = 0,
     noRecordsP;
 
-  noRecordsP = document.querySelector(".no-records");
+  noRecordsP = document.querySelector(".status-message-container__no-records");
 
   for (let i = 0; i < tr.length; i++) {
     if (!(tr[i].style.display === "none")) {
@@ -150,9 +149,9 @@ function didFilterFoundRecords() {
   }
 
   if (displayed === 1) {
-    noRecordsP.classList.remove("display");
+    noRecordsP.classList.remove("status-message-container--disabled");
   } else {
-    noRecordsP.classList.add("display");
+    noRecordsP.classList.add("status-message-container--disabled");
   }
 }
 

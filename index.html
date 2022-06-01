@@ -11,12 +11,12 @@
     <div class="search-bar-container">
       <input
         type="text"
-        class="search-bar"
+        class="search-bar-container__search-bar"
         onkeyup="filterFor()"
         placeholder="Search for names.."
       />
 
-      <div class="radio-container">
+      <div class="search-bar-container__radio-container">
         <input
           type="radio"
           id="name"
@@ -37,8 +37,14 @@
       </div>
     </div>
 
-    <p class="no-records display">No records found for this search!</p>
-    <p class="loading">Table loading...</p>
+    <div class="status-message-container">
+      <p
+        class="status-message-container__no-records status-message-container--disabled"
+      >
+        No records found for this search!
+      </p>
+      <p class="status-message-container__loading">Table loading...</p>
+    </div>
 
     <table class="people-table"></table>
     <script src="js/app.js"></script>

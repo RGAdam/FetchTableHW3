@@ -12,7 +12,7 @@ body {
     justify-content: center;
     margin-bottom: 10px;
 
-    .search-bar {
+    &__search-bar {
       text-align: center;
       width: 50%;
       border: 1px solid darken($grayColor, 10%);
@@ -57,7 +57,7 @@ body {
       align-items: center;
     }
 
-    .flex-box {
+    &__flex-box {
       display: flex;
       flex-direction: row;
 
@@ -75,13 +75,12 @@ body {
     }
   }
 
-  p {
+  .status-message-container {
     display: flex;
-
     justify-content: center;
-  }
-}
 
-.display {
-  display: none;
+    &--disabled {
+      display: none;
+    }
+  }
 }
