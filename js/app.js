@@ -133,6 +133,27 @@ function filterFor() {
       }
     }
   }
+
+  didFilterFoundRecords();
+}
+
+function didFilterFoundRecords() {
+  let displayed = 0,
+    noRecordsP;
+
+  noRecordsP = document.querySelector(".no-records");
+
+  for (let i = 0; i < tr.length; i++) {
+    if (!(tr[i].style.display === "none")) {
+      displayed++;
+    }
+  }
+
+  if (displayed === 1) {
+    noRecordsP.classList.remove("display");
+  } else {
+    noRecordsP.classList.add("display");
+  }
 }
 
 fetchPeople(
