@@ -1,9 +1,13 @@
 const loader = document.querySelector(".status-message-container__loading");
-table = document.querySelector(".people-table");
-tr = table.getElementsByTagName("tr");
+const noRecords = document.querySelector(
+  ".status-message-container__no-records"
+);
+const table = document.querySelector(".people-table");
+const tr = table.getElementsByTagName("tr");
 
 async function fetchPeople(url) {
   loader.classList.remove("status-message-container--disabled");
+  noRecords.classList.add("status-message-container--disabled");
 
   const res = await fetch(url);
 
@@ -12,6 +16,7 @@ async function fetchPeople(url) {
 
 function addToDom(data) {
   loader.classList.add("status-message-container--disabled");
+
   let output = "";
 
   data.forEach((person) => {

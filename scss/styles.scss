@@ -79,6 +79,10 @@ body {
     display: flex;
     justify-content: center;
 
+    &__loading, &__no-records {
+      color: darken($grayColor, 40%);
+    }
+
     &--disabled {
       display: none;
     }

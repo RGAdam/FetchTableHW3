@@ -62,6 +62,9 @@ body .status-message-container {
   display: flex;
   justify-content: center;
 }
+body .status-message-container__loading, body .status-message-container__no-records {
+  color: #8c8c8c;
+}
 body .status-message-container--disabled {
   display: none;
 }
