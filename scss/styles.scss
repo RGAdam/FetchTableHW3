@@ -8,15 +8,16 @@ body {
 
 .search-bar-container {
   display: flex;
+  height: 70px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 
   .search-bar {
     text-align: center;
     width: 50%;
     border: 1px solid darken($grayColor, 10%);
     padding: 20px;
-    margin-bottom: 20px;
 
     &:focus {
       outline: none;

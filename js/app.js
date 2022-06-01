@@ -1,4 +1,5 @@
 const loader = document.querySelector(".loading");
+const radioButtons = document.querySelectorAll('input[name="search-for"]');
 
 async function fetchPeople(url) {
   loader.classList.remove("display");
@@ -98,14 +99,32 @@ function sortTable(n) {
 }
 
 function searchBar() {
-  let input, filter, table, tr, td, i, txtValue;
+  let selectedButton;
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      selectedButton = radioButton.value;
+      break;
+    }
+  }
+
+  filterFor(selectedButton);
+}
+
+function filterFor(something) {
+  let input, filter, table, tr, td, i, txtValue, searchValue;
   input = document.querySelector(".search-bar");
   filter = input.value.toUpperCase();
   table = document.querySelector(".people-table");
   tr = table.getElementsByTagName("tr");
 
+  if (something === "Name") {
+    searchValue = 0;
+  } else {
+    searchValue = 1;
+  }
+
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[searchValue];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
