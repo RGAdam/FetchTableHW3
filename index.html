@@ -12,14 +12,29 @@
       <input
         type="text"
         class="search-bar"
-        onkeyup="searchBar()"
+        onkeyup="filterFor()"
         placeholder="Search for names.."
       />
 
-      <input type="radio" id="name" name="search-for" value="Name" checked />
-      <label for="name">Name</label><br />
-      <input type="radio" id="location" name="search-for" value="Location" />
-      <label for="location">Location</label>
+      <div class="radio-container">
+        <input
+          type="radio"
+          id="name"
+          name="search-for"
+          value="Name"
+          checked
+          onchange="filterFor()"
+        />
+        <label for="name">Name</label><br />
+        <input
+          type="radio"
+          id="location"
+          name="search-for"
+          value="Location"
+          onchange="filterFor()"
+        />
+        <label for="location">Location</label>
+      </div>
     </div>
 
     <p class="loading">Table loading...</p>

@@ -2,63 +2,65 @@
 body {
   font-family: Roboto, sans-serif;
 }
-
-.search-bar-container {
+body .search-bar-container {
   display: flex;
   height: 70px;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
 }
-.search-bar-container .search-bar {
+body .search-bar-container .search-bar {
   text-align: center;
   width: 50%;
   border: 1px solid #d9d9d9;
   padding: 20px;
 }
-.search-bar-container .search-bar:focus {
+body .search-bar-container .search-bar:focus {
   outline: none;
   border: 1.5px solid #bfbfbf;
 }
-
-.people-table {
+body .people-table {
   border-collapse: collapse;
   width: 100%;
 }
-.people-table tr:nth-child(even) {
+body .people-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.people-table tr:hover {
+body .people-table tr:hover {
   background-color: #d9d9d9;
 }
-.people-table th {
+body .people-table th {
   color: #404040;
   border-bottom: 1px solid #d9d9d9;
   text-align: left;
   padding: 20px 0 10px 10px;
   background-color: #f2f2f2;
 }
-.people-table th:hover {
+body .people-table th:hover {
   cursor: pointer;
 }
-.people-table td {
+body .people-table td {
   color: #737373;
   padding: 8px;
   align-items: center;
 }
-.people-table .flex-box {
+body .people-table .flex-box {
   display: flex;
   flex-direction: row;
 }
-.people-table .flex-box p {
+body .people-table .flex-box p {
   order: 1;
 }
-.people-table .flex-box img {
+body .people-table .flex-box img {
   background-color: #bfbfbf;
   margin-right: 15px;
   border-radius: 50%;
   width: 30px;
   height: 30px;
+}
+body p {
+  display: flex;
+  justify-content: center;
 }
 
 .display {

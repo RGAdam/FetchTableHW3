@@ -1,5 +1,6 @@
 const loader = document.querySelector(".loading");
-const radioButtons = document.querySelectorAll('input[name="search-for"]');
+table = document.querySelector(".people-table");
+tr = table.getElementsByTagName("tr");
 
 async function fetchPeople(url) {
   loader.classList.remove("display");
@@ -98,26 +99,24 @@ function sortTable(n) {
   }
 }
 
-function searchBar() {
-  let selectedButton;
+function getRadioButtonValue() {
+  let selectedButton, radioButtons;
+  radioButtons = document.querySelectorAll('input[name="search-for"]');
+
   for (const radioButton of radioButtons) {
     if (radioButton.checked) {
       selectedButton = radioButton.value;
-      break;
+      return selectedButton;
     }
   }
-
-  filterFor(selectedButton);
 }
 
-function filterFor(something) {
-  let input, filter, table, tr, td, i, txtValue, searchValue;
+function filterFor() {
+  let input, filter, td, i, txtValue, searchValue;
   input = document.querySelector(".search-bar");
   filter = input.value.toUpperCase();
-  table = document.querySelector(".people-table");
-  tr = table.getElementsByTagName("tr");
 
-  if (something === "Name") {
+  if (getRadioButtonValue() === "Name") {
     searchValue = 0;
   } else {
     searchValue = 1;
